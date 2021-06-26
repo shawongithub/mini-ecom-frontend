@@ -5,9 +5,9 @@ import Product from '../Product/Product'
 import Cart from '../Cart/Cart';
 
 const Shop = () => {
-
+    const storedCart = JSON.parse(window.localStorage.getItem('cart-key'))
     const [products, setProducts] = useState([])
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(storedCart)
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/product/api/v1/list/create/')
             .then(res => setProducts(res.data))

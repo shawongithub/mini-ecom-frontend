@@ -1,4 +1,5 @@
 import React from 'react';
+import './Product.css'
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle
@@ -14,7 +15,7 @@ const Product = (props) => {
                     <CardTitle tag="h5">{name}</CardTitle>
                     <CardTitle tag="h6">Price : {price}</CardTitle>
                     <CardText>{detail}</CardText>
-                    <button onClick={() => props.handleCart(id)}>Add to Cart</button>
+                    <button className="add-button" onClick={() => props.handleCart(id)}>Add to Cart</button>
                 </CardBody>
             </Card>
         </div>

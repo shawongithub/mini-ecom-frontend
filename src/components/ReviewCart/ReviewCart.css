@@ -1,0 +1,5 @@
+.remove-button{
+    border-radius: 5px;
+    background-image: linear-gradient(45deg,orange,red);
+    color:white
+}
