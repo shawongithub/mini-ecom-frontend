@@ -5,7 +5,7 @@ import {
 } from 'reactstrap';
 
 const Product = (props) => {
-    const { name, price, detail } = props.product
+    const { name, price, detail, id } = props.product
     return (
         <div className="col-sm-4">
             <Card>
@@ -14,7 +14,7 @@ const Product = (props) => {
                     <CardTitle tag="h5">{name}</CardTitle>
                     <CardTitle tag="h6">Price : {price}</CardTitle>
                     <CardText>{detail}</CardText>
-                    <button>Add to Cart</button>
+                    <button onClick={() => props.handleCart(id)}>Add to Cart</button>
                 </CardBody>
             </Card>
         </div>
