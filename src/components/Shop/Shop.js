@@ -8,6 +8,8 @@ const Shop = () => {
     const storedCart = JSON.parse(window.localStorage.getItem('cart-key'))
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState(storedCart)
+    const updatedCart = (cart === null ? [] : cart)
+    console.log(cart)
     useEffect(() => {
         axios.get('https://mini-ecom-api.herokuapp.com/product/api/v1/list/create/')
             .then(res => setProducts(res.data))
@@ -32,7 +34,7 @@ const Shop = () => {
                 </div>
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart cart={updatedCart} ></Cart>
             </div>
 
         </div>
