@@ -5,6 +5,7 @@ import Product from '../Product/Product'
 import Cart from '../Cart/Cart';
 
 const Shop = () => {
+
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([])
     useEffect(() => {

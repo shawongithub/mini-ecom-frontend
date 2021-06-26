@@ -1,8 +1,9 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom'
 const Cart = (props) => {
     const cart = props.cart
     const total = cart.reduce((total, product) => total + product.price, 0)
+    window.localStorage.setItem('cart-key', JSON.stringify(cart))
     return (
         <div>
             <h4 style={{ color: 'blue' }} >Cart</h4>
@@ -16,6 +17,8 @@ const Cart = (props) => {
             }
             <br />
             <h5>Total cost:{total}</h5>
+            <Link to='/review'><button>Review Cart</button></Link>
+
         </div>
     );
 };

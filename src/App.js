@@ -1,5 +1,6 @@
 import Header from './components/Header/Header'
 import Shop from './components/Shop/Shop'
+import ReviewCart from './components/ReviewCart/ReviewCart';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,20 +9,23 @@ import {
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Header />
-        <Switch>
-          <Route path="/shop">
-            <Shop />
-          </Route>
-          <Route exact path="/">
-          <Shop />
-          </Route>
-        </Switch>
 
-      </div>
-    </Router>
+    <Router>
+
+      <Header />
+      <Switch>
+        <Route path="/shop">
+          <Shop />
+        </Route>
+        <Route path="/review">
+          <ReviewCart />
+        </Route>
+        <Route exact path="/">
+          <Shop />
+        </Route>
+      </Switch>
+
+    </Router >
 
   );
 }
