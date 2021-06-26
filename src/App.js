@@ -20,7 +20,7 @@ function App() {
         <Route path="/review">
           <ReviewCart />
         </Route>
-        <Route exact path="/">
+        <Route exact path='/'>
           <Shop />
         </Route>
       </Switch>

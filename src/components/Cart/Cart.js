@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import './Cart.css'
 const Cart = (props) => {
     const cart = props.cart
-    const total = cart.reduce((total, product) => total + product.price, 0)
+    const initialTotal = 0
+    const total = cart.reduce((total, product) => total + product.price, initialTotal)
     window.localStorage.setItem('cart-key', JSON.stringify(cart))
     return (
         <div>

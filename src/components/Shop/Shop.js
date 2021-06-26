@@ -9,7 +9,7 @@ const Shop = () => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState(storedCart)
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/product/api/v1/list/create/')
+        axios.get('https://mini-ecom-api.herokuapp.com/product/api/v1/list/create/')
             .then(res => setProducts(res.data))
             .catch(err => console.log(err))
     }, [])
