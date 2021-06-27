@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
     const [username, setUsername] = useState('')
@@ -13,9 +14,23 @@ const Login = () => {
             username: username,
             password: password
         })
-            .then(res => console.log(res))
+            .then(res => {
+                const token = res.data.token
+                if (token !== undefined) {
+                    window.localStorage.setItem('token', JSON.stringify(token))
+                    alert("success")
+                }
+                else {
+                    window.localStorage.setItem('token', JSON.stringify("error"))
+                    alert("please enter right credentials")
+                }
+            })
             .then(err => console.log(err))
+        setUsername('')
+        setPassword('')
+
     }
+
     return (
         <div>
             <Form onSubmit={submitHandler}>
