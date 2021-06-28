@@ -3,7 +3,7 @@ import Shop from './components/Shop/Shop'
 import ReviewCart from './components/ReviewCart/ReviewCart'
 import Login from './components/Login/Login'
 import SignUp from './components/SignUp/SignUp'
-
+import AddProduct from './components/AddProduct/AddProduct'
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,6 +28,9 @@ function App() {
         </Route>
         <Route path="/signup">
           <SignUp />
+        </Route>
+        <Route path="/addproduct">
+          <AddProduct />
         </Route>
         <Route exact path='/'>
           <Shop />
