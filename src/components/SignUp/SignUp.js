@@ -1,37 +1,29 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Form, Button } from 'react-bootstrap'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom';
 
-const Login = () => {
+const SignUp = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     let history = useHistory()
 
     const submitHandler = (e) => {
         e.preventDefault()
-        axios.post('https://mini-ecom-api.herokuapp.com/api/v1/login/', {
+        axios.post('https://mini-ecom-api.herokuapp.com/api/v1/signup/', {
             username: username,
             password: password
         })
             .then(res => {
-                const token = res.data.token
-                if (token !== undefined) {
-                    window.localStorage.setItem('token', JSON.stringify(token))
-                    history.push("/review")
-                }
-                else {
-                    window.localStorage.setItem('token', JSON.stringify("error"))
-                    alert("please enter right credentials")
-                }
-            })
+                console.log(res)
+            }
+
+            )
             .then(err => console.log(err))
         setUsername('')
         setPassword('')
 
     }
-
     return (
         <div>
             <Form onSubmit={submitHandler}>
@@ -56,19 +48,11 @@ const Login = () => {
                 </Form.Group>
 
                 <Button type='submit' variant='primary'>
-                    Sign In
+                    Sign Up
                 </Button>
             </Form>
-            <Row className='py-3'>
-                <Col>
-                    New Customer?{' '}
-                    <Link to='/signup'>
-                        Register
-                    </Link>
-                </Col>
-            </Row>
         </div>
     );
 };
 
-export default Login;
+export default SignUp;
