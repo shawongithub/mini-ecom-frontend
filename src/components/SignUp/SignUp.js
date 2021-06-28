@@ -15,6 +15,7 @@ const SignUp = () => {
             password: password
         })
             .then(res => {
+                history.push("/login")
                 console.log(res)
             }
 
