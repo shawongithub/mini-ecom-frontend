@@ -63,7 +63,7 @@ const Login = () => {
                 <Col>
                     New Customer?{' '}
                     <Link to='/signup'>
-                        Register
+                        SignUp
                     </Link>
                 </Col>
             </Row>
