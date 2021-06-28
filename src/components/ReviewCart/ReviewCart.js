@@ -1,8 +1,11 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './ReviewCart.css'
+import { useHistory } from 'react-router-dom'
+
 const ReviewCart = () => {
+    let history = useHistory()
     const cart = JSON.parse(window.localStorage.getItem('cart-key'))
     const [reviewCart, setReviewCart] = useState(cart)
     const [token, setToken] = useState('')
@@ -10,28 +13,31 @@ const ReviewCart = () => {
         const newToken = JSON.parse(window.localStorage.getItem('token'))
         setToken(newToken)
     }, [])
-    console.log(token)
-    console.log("review-cart", reviewCart)
+
     const handleRemove = (id) => {
         const newReviewCart = reviewCart.filter(product => product.id !== id)
         setReviewCart(newReviewCart)
         window.localStorage.removeItem('cart-key')
         window.localStorage.setItem('cart-key', JSON.stringify(newReviewCart))
     }
+
     const handleSubmit = () => {
         console.log(reviewCart)
-        axios.post('http://127.0.0.1:8000/product/api/v1/addtocart/',
+        axios.post('https://mini-ecom-api.herokuapp.com/product/api/v1/addtocart/',
             {
                 products: reviewCart
             },
             {
                 headers: {
-                    'X-Jwt-Token': `Bearer ${token}`
+                    'authorization': `Bearer ${token}`,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
                 }
             }
         )
             .then(function (response) {
-                console.log(response);
+                window.localStorage.removeItem('cart-key')
+                history.push("/shop")
             })
             .catch(function (error) {
                 console.log(error);
