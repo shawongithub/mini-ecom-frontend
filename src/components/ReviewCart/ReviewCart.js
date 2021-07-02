@@ -35,12 +35,15 @@ const ReviewCart = () => {
                 }
             }
         )
-            .then(function (response) {
+            .then(res => {
                 window.localStorage.removeItem('cart-key')
                 history.push("/shop")
             })
-            .catch(function (error) {
-                console.log(error);
+            .catch(error => {
+                if (error.response.status === 400) {
+                    alert("you are not signed in")
+                }
+                history.push("/login")
             });
 
     }
