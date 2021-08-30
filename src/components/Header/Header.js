@@ -7,12 +7,16 @@ const Header = () => {
     const component = token ? <Link to="/logout">Logout</Link> : <Link to="/login">Login</Link>
     return (
         <div className="header">
-            <nav>
-                <Link to="/shop">Shop</Link>
-                <Link to="/review">Review Cart</Link>
-                {component}
-                <Link to="/addproduct">Add Product</Link>
-            </nav>
+
+            <div className="header__logo">
+                LOGO
+            </div>
+            <div className="header__menu">
+                <div className="item-">Home</div>
+                <div className="item-">ReviewCart</div>
+                <div className="item-">AddProduct</div>
+                <div className="item-">Login</div>
+            </div>
         </div>
     );
 };

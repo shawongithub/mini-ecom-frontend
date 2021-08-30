@@ -8,3 +8,11 @@
     margin-right: 5px;
     border-right: 1px solid lightblue;
 }
+
+@media screen and (max-width: 768px) {
+.shop-container{
+    position: absolute;
+    top:40vh;
+}
+
+}
