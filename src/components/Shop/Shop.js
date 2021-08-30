@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import './Shop.css'
 import Product from '../Product/Product'
-import Cart from '../Cart/Cart';
+
 
 const Shop = () => {
     const storedCart = JSON.parse(window.localStorage.getItem('cart-key'))
@@ -32,9 +32,6 @@ const Shop = () => {
                         />)
                     }
                 </div>
-            </div>
-            <div className="cart-container">
-                <Cart cart={updatedCart} ></Cart>
             </div>
 
         </div>

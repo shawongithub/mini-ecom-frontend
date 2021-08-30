@@ -1,15 +1,4 @@
-.shop-container{
-    display:flex;
-}
-
-.product-container{
-    width: 70%;
-    margin-left: 20px;
-    margin-right: 5px;
-    border-right: 1px solid lightblue;
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
 .shop-container{
     position: absolute;
     top:40vh;

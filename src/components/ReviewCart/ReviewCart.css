@@ -1,3 +1,10 @@
+@media screen and (max-width: 480px) {
+    .container{
+        position: absolute;
+        top:40vh;
+    }
+    
+    }
 .remove-button{
     border-radius: 5px;
     background-image: linear-gradient(45deg,orange,red);
